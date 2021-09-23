@@ -58,7 +58,7 @@ func main() {
 	var var6, var7 = "var6", 12
 
 	var8 := "var8"
-	var9, var7 := "var9", 12
+	var9, var7 := "var9", 13
 
 	fmt.Printf("\nVariables:"+
 		"\n var1 = %v"+
@@ -72,5 +72,87 @@ func main() {
 		"\n var9 = %v",
 		var1, var2, var3, var4, var5,
 		var6, var7, var8, var9)
+
+	// constants
+	const typed = 12
+	const untyped float64 = 1.12
+
+	// var temp2 = var7 + int(f1)
+	// var temp1 = typed + f1
+
+	// integer const
+	// 85
+	// 0213
+	// 0x4b
+	// 30
+	// 30u
+	// 30l
+	// 30ul
+	// 212
+	// 215u
+	// 0xFeeL
+
+	// complex const
+	// (0.0, 0.0)
+	// (-123.456E+30, 987.654E-29)
+
+	// float const
+	// 3.14159
+	// 314159E-5L
+
+	// string const
+	// 	"hello, geeksforgeeks"
+	// "hello, \
+	// geeksforgeeks"
+	// "hello, " "geeks" "forgeeks"
+	// var sd =  `salam
+	// aleik`
+
+	// condition
+	if t1 > 99 {
+
+	} else if t1 > 200 {
+
+	} else {
+
+	}
+
+	// for loop
+	for i := 0; i < 1000; i++ {
+
+	}
+
+	for {
+		break
+	}
+
+	for t1 > 100 {
+
+	}
+
+	array := []string{"1", "2", "3"}
+	for _, item := range array {
+		fmt.Print(item)
+	}
+
+	mmap := map[int]string{
+		22: "S1",
+		33: "S2",
+	}
+	for key, value := range mmap {
+		fmt.Println(key, value)
+	}
+
+	chnl := make(chan int)
+	go func() {
+		chnl <- 100
+		chnl <- 1000
+		chnl <- 10000
+		chnl <- 100000
+		close(chnl)
+	}()
+	for i := range chnl {
+		fmt.Println(i)
+	}
 
 }
