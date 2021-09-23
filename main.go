@@ -155,4 +155,30 @@ func main() {
 		fmt.Println(i)
 	}
 
+	// switch
+
+	switch variable := 4; variable {
+	case 1:
+		fmt.Println("Case 1")
+	case 2:
+		fmt.Println("Case 2")
+	case 3:
+		fmt.Println("Case 3")
+	case 4:
+		fmt.Println("Case 4")
+	default:
+		fmt.Println("Invalid")
+	}
+	value := 1
+	switch {
+	case value == 1:
+		fmt.Println("Hello")
+	case value == 2:
+		fmt.Println("Hello 2")
+	case value == 3:
+		fmt.Println("Hello 3")
+	default:
+		fmt.Println("Hello 4")
+	}
+
 }
