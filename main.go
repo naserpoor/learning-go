@@ -41,12 +41,37 @@ func main() {
 
 	var s1 string = "Alirexa"
 	var s2 string = "Alireza"
-	var b bool = s1 == s2
+	var b1 bool = s1 == s2
 
 	fmt.Printf(
 		"\nString:"+
 			"\ns1 = %s"+
 			"\ns2 = %s"+
-			"\nb = %v",
-		s1, s2, b)
+			"\nb1 = %v",
+		s1, s2, b1)
+
+	// variables
+	var var1 string = "var1"
+	var var2 = "var2"
+	var var3 string
+	var var4, var5 string = "var4", "var5"
+	var var6, var7 = "var6", 12
+
+	var8 := "var8"
+	var9, var10 := "var9", 12
+
+	fmt.Printf("\nVariables:"+
+		"\n var1 = %v"+
+		"\n var2 = %v"+
+		"\n var3 = %v"+
+		"\n var4 = %v"+
+		"\n var5 = %v"+
+		"\n var6 = %v"+
+		"\n var7 = %v"+
+		"\n var8 = %v"+
+		"\n var9 = %v"+
+		"\n var10 = %v",
+		var1, var2, var3, var4, var5,
+		var6, var7, var8, var9, var10)
+
 }
