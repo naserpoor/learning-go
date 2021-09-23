@@ -58,7 +58,7 @@ func main() {
 	var var6, var7 = "var6", 12
 
 	var8 := "var8"
-	var9, var10 := "var9", 12
+	var9, var7 := "var9", 12
 
 	fmt.Printf("\nVariables:"+
 		"\n var1 = %v"+
@@ -69,9 +69,8 @@ func main() {
 		"\n var6 = %v"+
 		"\n var7 = %v"+
 		"\n var8 = %v"+
-		"\n var9 = %v"+
-		"\n var10 = %v",
+		"\n var9 = %v",
 		var1, var2, var3, var4, var5,
-		var6, var7, var8, var9, var10)
+		var6, var7, var8, var9)
 
 }
