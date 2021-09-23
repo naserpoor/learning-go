@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"strings"
 )
 
 func main() {
@@ -155,8 +156,8 @@ func main() {
 		fmt.Println(i)
 	}
 
+	
 	// switch
-
 	switch variable := 4; variable {
 	case 1:
 		fmt.Println("Case 1")
@@ -183,13 +184,51 @@ func main() {
 
 
 	// select
-	c := make(chan int)
-	c <- 10
-	select {
-		case x1 := <- c:
-			fmt.Println("Value: ", x1)
-		default:
-			fmt.Println("Default case..!")
-    }
+	// c := make(chan int)
+	// c <- 10
+	// select {
+	// 	case x1 := <- c:
+	// 		fmt.Println("Value: ", x1)
+	// 	default:
+	// 		fmt.Println("Default case..!")
+    // }
 
+
+	// functions
+	defer sayHello("Alireza")
+
+
+}
+
+type str string
+
+// functions
+func sayHello(name string) string {
+	return "Hello " + name
+}
+
+func sayHelloToAll(names... string) string {
+	return "Hello " + strings.Join(names,", ")
+}
+
+func sayHelloCallback(name string, callback func (string)) {
+	callback(sayHello(name))
+}
+
+func sayBye1(name string) (string,string) {
+	return "Bye " + name, "See You Later"
+}
+
+func sayBye2(name string) (bye, wish string) {
+	bye = "Bye " + name
+	wish = "See You Later"
+	return
+}
+
+func (a str) sayHello() str {
+	return "Hello " + a
+}
+
+func (a*str) sayHelloPtr() str {
+	return "Hello " + *a
 }
