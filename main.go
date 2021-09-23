@@ -181,4 +181,15 @@ func main() {
 		fmt.Println("Hello 4")
 	}
 
+
+	// select
+	c := make(chan int)
+	c <- 10
+	select {
+		case x1 := <- c:
+			fmt.Println("Value: ", x1)
+		default:
+			fmt.Println("Default case..!")
+    }
+
 }
