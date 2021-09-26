@@ -239,7 +239,22 @@ func main() {
 	stu1.printAddress()
 
 
-	
+	// Arrays value type
+	//var array1[1]int
+	//array2 := [...]int{1}
+	//array3 := [1][1]int{{1}}
+	//
+	//// Slices reference type
+	//var slc1[]int
+	//var slc2 = []int{1,2}
+	//slc3 = array2[1:1]// upper bound inclusive
+	//
+	//sort.Ints(slc2)
+	//sort.Ints(array2[0:])
+	//bytes.Compare([]byte{1,2},[]byte{1,2})
+
+
+
 }
 
 type str string
