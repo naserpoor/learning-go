@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"reflect"
 	"strings"
 )
 
@@ -156,7 +157,6 @@ func main() {
 		fmt.Println(i)
 	}
 
-	
 	// switch
 	switch variable := 4; variable {
 	case 1:
@@ -182,7 +182,6 @@ func main() {
 		fmt.Println("Hello 4")
 	}
 
-
 	// select
 	// c := make(chan int)
 	// c <- 10
@@ -191,13 +190,56 @@ func main() {
 	// 		fmt.Println("Value: ", x1)
 	// 	default:
 	// 		fmt.Println("Default case..!")
-    // }
-
+	// }
 
 	// functions
 	defer sayHello("Alireza")
 
+	// structure
+	var struct1 Address
+	var struct2 = Address{"Tehran", "Alireza", 1221, str("Anonymos")}
+	var struct3 = Address{Name: "Zahra", city: "Isfahan"}
+	var struct4 = &Address{}
+	(*struct4).city = "Ahvaz"
+	struct4.Name = "Roya"
+	struct4.str = str("Salam")
 
+	fmt.Printf("\nStructure:"+
+		"\n struct1:%v"+
+		"\n struct2:%v"+
+		"\n struct3:%v"+
+		"\n struct4.Name:%v"+
+		"\n struct4.city:%v\n",
+		struct1, struct2, struct3, struct4.Name, struct4.city,
+	)
+
+	if struct2 == struct3 {
+		fmt.Print("struct2 == struct3")
+	} else if reflect.DeepEqual(struct3, struct4) {
+		fmt.Print("struct3 == struct4")
+	} else {
+		fmt.Print("No one is equal")
+	}
+
+	stu1 := Student{
+		Name:  "Alireza",
+		FName: "Naserpour",
+		age:   22,
+		Address: Address{
+			city:    "Tehran",
+			Pincode: 1234,
+		},
+	}
+
+	fmt.Printf("\nstu1:"+
+		"\nname:%v"+
+		"\ncity:%v\n",
+		stu1.Name, stu1.city,
+	)
+	stu1.printAddress()
+
+
+	
 }
 
 type str string
@@ -207,15 +249,15 @@ func sayHello(name string) string {
 	return "Hello " + name
 }
 
-func sayHelloToAll(names... string) string {
-	return "Hello " + strings.Join(names,", ")
+func sayHelloToAll(names ...string) string {
+	return "Hello " + strings.Join(names, ", ")
 }
 
-func sayHelloCallback(name string, callback func (string)) {
+func sayHelloCallback(name string, callback func(string)) {
 	callback(sayHello(name))
 }
 
-func sayBye1(name string) (string,string) {
+func sayBye1(name string) (string, string) {
 	return "Bye " + name, "See You Later"
 }
 
@@ -229,6 +271,25 @@ func (a str) sayHello() str {
 	return "Hello " + a
 }
 
-func (a*str) sayHelloPtr() str {
+func (a *str) sayHelloPtr() str {
 	return "Hello " + *a
+}
+
+// structure
+type Address struct {
+	Name    string
+	city    string
+	Pincode int
+	str
+}
+
+type Student struct {
+	Name  string
+	FName string
+	age   int
+	Address
+}
+
+func (a Address) printAddress() {
+	fmt.Println(a)
 }
