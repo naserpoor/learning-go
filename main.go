@@ -238,7 +238,6 @@ func main() {
 	)
 	stu1.printAddress()
 
-
 	// Arrays value type
 	//var array1[1]int
 	//array2 := [...]int{1}
@@ -253,8 +252,14 @@ func main() {
 	//sort.Ints(array2[0:])
 	//bytes.Compare([]byte{1,2},[]byte{1,2})
 
-
-
+	// interfaces
+	var printer AddressPrinter = Address{}
+	var dynamicType emptyInterface = printer
+	printer.printAddress()
+	switch dynamicType.(type) {
+	case int:
+	case Address:
+	}
 }
 
 type str string
@@ -307,4 +312,16 @@ type Student struct {
 
 func (a Address) printAddress() {
 	fmt.Println(a)
+}
+
+// interface
+type AddressPrinter interface {
+	printAddress()
+}
+
+type emptyInterface interface{}
+
+type embedInterface interface {
+	method() string
+	AddressPrinter
 }
